@@ -13,4 +13,4 @@ setInterval(() => {
         animatedText.textContent = texts[currentIndex]; // 새 텍스트로 변경
         animatedText.style.opacity = "1"; // 텍스트를 다시 보이게 합니다 (페이드 인)
     }, 1000); // 페이드 아웃이 완료된 후 텍스트 변경
-}, 3000); // 전체 애니메이션 주기를 3초로 설정 (페이드 아웃
+}, 3000);
