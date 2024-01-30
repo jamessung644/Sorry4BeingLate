@@ -1,16 +1,46 @@
-$(document).ready(function () {
-    $('#loading').hide(); // 페이지 로딩 시 로딩 화면 숨김
-});
-
 function generateExcuse() {
     const api_key = config.apikey; // OpenAI API 키
     $('#loading').show(); // 로딩 화면 표시
 
-    var situation = $('#situation').val();
-    var target = $('#target').val();
+    var from = $('#from').val();
+    var to = $('#to').val();
     var intent = $('#intent').val();
+    var type = $('#type').val(); // 본인의 이름
+    var speech = $('#speech').val(); // 대상과의 관계
+    var etc = $('#etc').val(); // 기타 정보
+    var sliderValue = document.getElementById('volumeSlider').value;
 
-    var prompt = "상황: " + situation + ", 대상: " + target + ", 의도: " + intent + ". 이 상황에서 " + target + "에게 어떻게 사과해야 하는지, 적절한 말투와 뉘앙스를 사용하여, " + intent + "를 은근하게 표현할 수 있는 사과문을 작성해주세요.";
+    // 슬라이드 바 값을 기반으로 형용사를 가져옵니다
+    var nuance = "따스한";
+
+    var prompt = ""; // 프롬프트 초기화
+
+    // 모든 필수 필드가 채워졌는지 확인
+    if (from && to && intent) {
+        // 기본 프롬프트 구성
+        prompt = "부가적인 정보 없이 내가 원하는 글만 작성해야해. "+ "누가: " + from + ", 누구에게: " + to + "은 " + from + "(나는)은 대상과의 관계를 보고 적절한 말을 사용해서" + to + "에게 " + intent + "을 글로 작성해야 해.";
+        
+        if(type) {
+            // 세부사항이 부족한 경우
+            prompt += "글을 "+ type + "에 작성하야해";
+        }
+        else if(type && speech) {
+            // 세부사항이 부족한 경우
+            prompt += " 글은 " + type + "에 작성하고, 말투는 " + speech + "를 사용해.";
+        }
+        // 세부사항이 모두 제공되었는지 확인
+        else if (type && speech && etc) {
+            // 세부사항을 포함한 프롬프트
+            prompt += " 글은 " + type + "에 작성하고, 말투는 " + speech + "를 사용해. 추가적인 정보는 " + etc + "야.";
+        }
+        
+    }
+
+    if (!prompt) {
+        alert("필수 정보를 모두 입력해주세요.");
+        $('#loading').hide(); // 로딩 화면 숨김
+        return; // 필수 정보가 없으면 함수를 종료합니다.
+    }
 
     const data = {
         model: 'gpt-3.5-turbo',
@@ -36,14 +66,13 @@ function generateExcuse() {
         let responseText = response.choices && response.choices.length > 0 ? response.choices[0].message.content : "No response text found.";
         let pre = $('<pre>').text("\n\n" + responseText);
         result.empty().append(pre); // 결과 표시
-
-        // 입력 필드 초기화 코드를 제거
     }).fail(function (err) {
         $('#loading').hide(); // 실패 시 로딩 화면 숨김
         console.error("API 요청 실패: ", err);
         alert("API 요청에 실패했습니다. API 키와 인터넷 연결을 확인해주세요.");
     });
 }
+
 // 상세 설정 드롭다운 토글
 $('#detailSettingsBtn').click(function() {
     $('#detailSettingsDropdown').toggle();
@@ -61,7 +90,7 @@ document.getElementById('copyButton').addEventListener('click', function() {
 
     // Use the Clipboard API to copy the text
     navigator.clipboard.writeText(resultText).then(function() {
-        button.innerText = 'Copied'; // Change button text to 'Copied'
+        button.innerText = '복사됨!'; // Change button text to 'Copied'
         button.disabled = true; // Disable the button to prevent further clicks
 
         // Set a timeout to revert the button back to its original state
@@ -71,7 +100,7 @@ document.getElementById('copyButton').addEventListener('click', function() {
         }, 2000); // 2000 milliseconds = 2 seconds
     }).catch(function(error) {
         // Handle any errors (optional)
-        console.error('Copy failed', error);
+        console.error('복사 실패', error);
         // Even in case of error, revert the button after 2 seconds
         setTimeout(function() {
             button.innerText = originalText;
