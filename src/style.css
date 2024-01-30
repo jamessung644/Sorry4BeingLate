@@ -1,0 +1,202 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px; /* Add some space below the title */
+}
+
+/* Form wrapper */
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* 폼 래퍼의 최대 너비 증가 */
+}
+
+/* Input field styles */
+input[type="text"] {
+    width: 90%; /* 너비를 90%로 설정 */
+    padding: 20px;
+    margin: 15px auto; /* 위아래 마진은 15px, 좌우 마진은 자동으로 설정 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+/* Button styles */
+button {
+    padding: 12px 25px; /* Increase padding for larger button */
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px; /* Add some space above the button */
+}
+
+button:hover {
+    background-color: #49494a;
+}
+
+#loading > img {
+    width: 100px; /* Adjust the size of the loading GIF */
+}
+
+
+/* 로딩 이미지 스타일 */
+#loading {
+    position: fixed; /* 고정 위치 */
+    top: 50%; /* 세로축 중앙 */
+    left: 50%; /* 가로축 중앙 */
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    display: none; /* 기본적으로 숨김 */
+    width: 300px; /* 원하는 너비 설정 */
+    height: 300px; /* 원하는 높이 설정 */
+}
+
+/* Result section styles */
+#result {
+    margin-top: 20px;
+    padding: 20px; /* 패딩 증가로 내부 여백 추가 */
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: calc(100% - 40px); /* 양옆 여백 고려하여 너비 조정 */
+    max-width: 450px; /* Max width to match the form wrapper */
+    min-height: 300px; /* 최소 높이 설정으로 초기 높이 확보 */
+    box-sizing: border-box; /* 패딩과 보더를 너비에 포함 */
+    overflow: auto; /* 내용이 넘칠 경우 스크롤바 표시 */
+}
+
+@keyframes fadeOutIn {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+#animatedText {
+    display: inline-block;
+    animation: fadeOutIn 4s infinite;
+}
+
+.form-wrapper {
+    margin: 20px 0;
+}
+
+#detailSettingsDropdown {
+    margin-top: 10px;
+    background-color: #e8e8e8; /* 배경색 변경 */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 그림자 효과 추가 */
+}
+
+#result {
+    margin-top: 20px;
+    border: 1px solid #ccc; /* 테두리 색상 변경 */
+    padding: 10px;
+    background-color: #ffffff; /* 배경색 변경 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 그림자 효과 추가 */
+}
+
+.loading-gif {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 100px; /* 로딩 GIF 크기 축소 */
+    height: 100px; /* 높이 조정 */
+}
+
+/* 슬라이더 스타일 */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px; /* 슬라이더 높이 조정 */
+    background: #ddd;
+    outline: none;
+    opacity: 0.8; /* 투명도 조정 */
+    transition: opacity .2s;
+}
+
+input[type="range"]:hover {
+    opacity: 1;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #007bff; /* 핸들 색상 변경 */
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #007bff; /* 핸들 색상 변경 */
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px 0;
+}
+
+.slider-label {
+    position: absolute;
+    top: -25px; /* 레이블 위치 조정 */
+    font-weight: normal; /* 폰트 굵기 조정 */
+    color: #666; /* 레이블 색상 변경 */
+}
+
+.slider-label.left {
+    left: 0;
+}
+
+.slider-label.right {
+    right: 0;
+}
+
+.slider-with-value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: calc(100% - 40px);
+    margin: 0;
+}
+
+#volumeValue {
+    margin-top: 5px;
+    font-size: 14px; /* 값 표시 폰트 크기 조정 */
+    color: #666; /* 값 표시 색상 변경 */
+}

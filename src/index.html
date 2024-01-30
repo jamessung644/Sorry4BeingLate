@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제가 왜 늦었냐면요..</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="apikey.js"></script>
+</head>
+<body>
+    <h1>제가 왜 늦었냐면요..</h1>
+    <h2>상황, 대상, 의도를 입력하고 <span id="animatedText">변명을</span> 생성하세요.</h2>
+
+    <div class="form-wrapper">
+        <div>상황: <input type="text" id="situation" name="situation" required /></div>
+        <div>대상: <input type="text" id="target" name="target" required /></div>
+        <div>의도: <input type="text" id="intent" name="intent" required /></div>
+        
+        <button id="detailSettingsBtn">상세 설정</button>
+        
+        <div id="detailSettingsDropdown" style="display: none;">
+            <div class="slider-container">
+                <span class="slider-label left">T</span>
+                <input type="range" id="volumeSlider" name="volume" min="0" max="100" class="slider">
+                <span class="slider-label right">F</span>
+            </div>
+            <span id="volumeValue">0%</span>
+             
+            <div>본인의 이름을 작성해주세요: <input type="text" id="option1" name="option1" /></div>
+            <div>대상과 본인의 관계를 작성해주세요: <input type="text" id="option2" name="option2" /></div>
+            <div>옵션 3: <input type="text" id="option3" name="option3" /></div>
+        </div>
+    </div>
+    
+    <button onclick="generateExcuse()">입력</button>
+
+    <div id="result"></div>
+
+    <button id="copyButton">Copy</button>
+
+    <div id="copyConfirm" style="display: none;">Copied!</div>
+
+    <div id="loading" class="loading-gif" style="display: none;">
+        <div class="tenor-gif-embed" data-postid="23162082" data-share-method="host" data-aspect-ratio="0.903125" data-width="100%">
+            <a href="https://tenor.com/view/loading-gif-gif-23162082">Loading Gif GIF</a> from 
+            <a href="https://tenor.com/search/loading-gifs">Loading GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
