@@ -7,7 +7,7 @@ figma : https://www.figma.com/file/uKI3DwSVeblXVMIMDy4wd6
 Demo : TO_BE_CONTINEUE
 
 
-project_name : 그러니까, 내가 왜 늦었냐면
+project_name : 그러니까, 내가 왜 늦었냐면..
 
 
 lastupdate : 2024.01.31
