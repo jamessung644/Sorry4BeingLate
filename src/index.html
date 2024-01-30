@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="apikey.js"></script>
+    <script src="ad.js"></script>
 </head>
 <body>
     <h1>제가 왜 늦었냐면요..</h1>
@@ -31,8 +32,16 @@
             <div>대상과 본인의 관계를 작성해주세요: <input type="text" id="option2" name="option2" /></div>
             <div>옵션 3: <input type="text" id="option3" name="option3" /></div>
         </div>
+
+        <!-- 광고 컨테이너의 위치를 여기로 이동 -->
+        <div id="adContainer2" class="ad-container"></div>
+        <script>
+            // 광고 로드
+            loadCoupangAd(752652, "AF6047637", 728, 90, "adContainer2");
+        </script>
+
     </div>
-    
+
     <button onclick="generateExcuse()">입력</button>
 
     <div id="result"></div>
@@ -48,7 +57,7 @@
         </div>
         <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
     </div>
-
     <script src="script.js"></script>
+    
 </body>
 </html>
