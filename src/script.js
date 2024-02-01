@@ -43,7 +43,7 @@ function generateExcuse() {
     }
 
     const data = {
-        model: 'gpt-3.5-turbo',
+        model: 'gpt-3.5-turbo-0613',
         temperature: 0.7,
         max_tokens: 1000,
         messages: [

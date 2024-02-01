@@ -6,6 +6,29 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <title>제가 왜 늦었냐면요..</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ad-container {
+            margin: 20px 0;
+        }
+
+        /* Media query to hide ads on smaller screens */
+        @media screen and (max-width: 768px) {
+            .ad-container {
+                display: none;
+            }
+        }
+    </style>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="apikey.js"></script>
@@ -13,6 +36,7 @@
     <script src="adjective.js"></script>
     <script src="animation.js"></script>
     <script src="script.js"></script>
+    
 </head>
 <body>
     <img src="logo.png" alt="Logo" style="display: block; margin: 0 auto; max-width: 15%;">
@@ -84,10 +108,7 @@
     </div>
     <script src="script.js"></script>
     
-   <!-- 페이지 오른쪽 하단에 iframe 광고 -->
-   <iframe src="https://ads-partners.coupang.com/widgets.html?id=752912&template=carousel&trackingCode=AF6047637&subId=&width=180&height=1080&tsource=" width="180" height="1080" frameborder="0" scrolling="no" referrerpolicy="unsafe-url" browsingtopics style="position: fixed; right: 20px; bottom: 0; z-index: 1000;"></iframe>
 
-   <iframe src="https://ads-partners.coupang.com/widgets.html?id=752661&template=banner&trackingCode=AF6047637&subId=&width=320&height=480" width="320" height="480" frameborder="0" scrolling="no" referrerpolicy="unsafe-url" browsingtopics style="position: fixed; left: 20px; bottom: 400px; z-index: 1000;"></iframe>
 
 </body>
 </html>
